@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE HUMAN ADVANTAGE | RiskMathics</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0F172A;--navy-light:#1E293B;--navy-mid:#334155;--coral:#F97316;--blue:#2563EB;--green:#10B981;--white:#F8FAFC;--gray:#94A3B8;--copper:#D97706}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Poppins',sans-serif;font-weight:300;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--gray)}
+.logo span{display:block;font-size:10px;letter-spacing:4px;color:var(--coral);margin-top:2px}
+nav a{color:var(--coral);font-size:13px;text-decoration:none;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:opacity .3s}nav a:hover{opacity:.7}
+
+/* HERO */
+.hero{padding:100px 0 80px;text-align:center}
+.hero-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--coral);margin-bottom:24px;font-weight:500}
+.hero h1{font-family:'Poppins',sans-serif;font-size:clamp(36px,6vw,72px);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero-sub{font-family:'Lora',serif;font-size:clamp(16px,2vw,22px);color:var(--gray);max-width:700px;margin:0 auto 40px;font-weight:400}
+.hero-meta{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:48px}
+.hero-meta div{text-align:center}
+.hero-meta .val{font-family:'Poppins',sans-serif;font-size:28px;font-weight:600;color:var(--coral)}
+.hero-meta .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.cta-btn{display:inline-block;background:var(--coral);color:var(--navy);padding:16px 48px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;border:none;cursor:pointer}
+.cta-btn:hover{background:var(--copper);transform:translateY(-1px)}
+
+/* SECTIONS */
+section{padding:80px 0;border-top:1px solid rgba(255,255,255,0.04)}
+section h2{font-family:'Poppins',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:600;margin-bottom:16px;letter-spacing:-0.5px}
+section h2 span{color:var(--coral)}
+.section-sub{font-family:'Lora',serif;color:var(--gray);font-size:17px;max-width:650px;margin-bottom:48px}
+
+/* GRID */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+.card{background:var(--navy-light);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:36px 28px}
+.card h3{font-family:'Poppins',sans-serif;font-size:18px;font-weight:600;margin-bottom:12px}
+.card p{color:var(--gray);font-size:14px;line-height:1.7}
+.card .num{font-family:'Poppins',sans-serif;font-size:48px;font-weight:700;color:var(--coral);opacity:.3;margin-bottom:12px}
+
+/* MODULES */
+.module-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.module-item{background:var(--navy-light);border-left:3px solid var(--coral);padding:24px;border-radius:0 8px 8px 0}
+.module-item h4{font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;margin-bottom:6px}
+.module-item p{color:var(--gray);font-size:13px}
+
+/* FORM */
+.form-section{background:var(--navy-light);border-radius:12px;padding:60px 48px;max-width:700px;margin:0 auto}
+.form-section h2{text-align:center;margin-bottom:8px}
+.form-section .section-sub{text-align:center;margin:0 auto 36px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-grid .full{grid-column:1/-1}
+.form-group label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;font-weight:500}
+.form-group input,.form-group select{width:100%;padding:12px 16px;background:var(--navy);border:1px solid var(--navy-mid);border-radius:6px;color:var(--white);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .3s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--coral)}
+.form-group select option{background:var(--navy);color:var(--white)}
+.error-msg{color:#EF4444;font-size:11px;margin-top:4px;display:none}
+.form-group.error input,.form-group.error select{border-color:#EF4444}
+.form-group.error .error-msg{display:block}
+.submit-btn{width:100%;margin-top:24px}
+.success-msg{display:none;text-align:center;padding:40px}
+.success-msg h3{font-family:'Poppins',sans-serif;font-size:24px;color:var(--green);margin-bottom:12px}
+
+/* PRICING */
+.pricing-box{text-align:center;background:var(--navy-light);border:1px solid var(--coral);border-radius:12px;padding:48px;max-width:500px;margin:0 auto}
+.pricing-box .price{font-family:'Poppins',sans-serif;font-size:48px;font-weight:700;color:var(--coral)}
+.pricing-box .curr{font-size:20px;font-weight:400;color:var(--gray)}
+.pricing-box .note{color:var(--gray);font-size:13px;margin-top:8px}
+
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.06);text-align:center}
+footer .logo-foot{font-family:'Poppins',sans-serif;font-weight:300;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gray)}
+footer p{color:var(--navy-mid);font-size:12px;margin-top:8px}
+
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}.hero-meta{gap:24px}.form-section{padding:36px 20px}}
+</style>
+</head>
+<body>
+
+<nav><div class="container"><div class="logo">RiskMathics<span>Financial Innovation Lab</span></div><a href="#register">Register Now</a></div></nav>
+
+<section class="hero"><div class="container">
+<div class="hero-label">Executive Program &mdash; June 2026</div>
+<h1>THE HUMAN <em>ADVANTAGE</em></h1>
+<p class="hero-sub">Design Thinking, Leadership &amp; Strategic AI Innovation in the Age of Artificial Intelligence</p>
+<div class="hero-meta">
+<div><div class="val">30</div><div class="lbl">Hours</div></div>
+<div><div class="val">6</div><div class="lbl">Modules</div></div>
+<div><div class="val">1</div><div class="lbl">Capstone</div></div>
+<div><div class="val">Open</div><div class="lbl">Program</div></div>
+</div>
+<a href="#register" class="cta-btn">Secure Your Seat</a>
+</div></section>
+
+<section id="about"><div class="container">
+<h2>Why <span>This Program</span></h2>
+<p class="section-sub">In an era where AI reshapes every industry, the leaders who thrive are those who master the irreplaceable human skills: creativity, strategic thinking, and design-led innovation.</p>
+<div class="grid-3">
+<div class="card"><div class="num">01</div><h3>Design Thinking Mastery</h3><p>Learn frameworks used by Apple, IDEO, and McKinsey to solve complex problems with human-centered approaches.</p></div>
+<div class="card"><div class="num">02</div><h3>AI-Augmented Leadership</h3><p>Understand how to leverage AI as a strategic partner while amplifying uniquely human capabilities in your organization.</p></div>
+<div class="card"><div class="num">03</div><h3>Strategic Innovation</h3><p>Build and execute innovation strategies that create lasting competitive advantages in finance and beyond.</p></div>
+</div>
+</div></section>
+
+<section id="modules"><div class="container">
+<h2>Program <span>Structure</span></h2>
+<p class="section-sub">Six intensive modules designed for senior executives, culminating in a real-world capstone project.</p>
+<div class="module-list">
+<div class="module-item"><h4>Module 1: Foundations of Design Thinking</h4><p>Human-centered design principles, empathy mapping, problem framing for financial services.</p></div>
+<div class="module-item"><h4>Module 2: Creative Leadership in the AI Era</h4><p>Leading creative teams, fostering innovation culture, and navigating AI-driven transformation.</p></div>
+<div class="module-item"><h4>Module 3: Strategic AI Integration</h4><p>Identifying AI opportunities, building AI strategy, and maintaining the human advantage.</p></div>
+<div class="module-item"><h4>Module 4: Innovation Frameworks</h4><p>Rapid prototyping, lean startup methods, and innovation portfolio management.</p></div>
+<div class="module-item"><h4>Module 5: Organizational Transformation</h4><p>Change management, stakeholder alignment, and building innovation-ready organizations.</p></div>
+<div class="module-item"><h4>Module 6: Capstone &amp; Synthesis</h4><p>Apply all frameworks to a real business challenge. Present to a panel of industry leaders.</p></div>
+</div>
+</div></section>
+
+<section id="pricing"><div class="container">
+<h2 style="text-align:center">Investment</h2>
+<p class="section-sub" style="text-align:center;margin:0 auto 48px">An investment in the capabilities that AI cannot replicate.</p>
+<div class="pricing-box">
+<div class="price">$65,000 <span class="curr">MXN</span></div>
+<div class="note">Per participant &bull; Includes all materials, certification &amp; networking events</div>
+<a href="#register" class="cta-btn" style="margin-top:24px">Register Now</a>
+</div>
+</div></section>
+
+<section id="register"><div class="container">
+<div class="form-section">
+<h2>Reserve Your <span>Seat</span></h2>
+<p class="section-sub">Complete the form below. A program advisor will contact you within 24 hours.</p>
+<form id="leadForm" novalidate>
+<div class="form-grid">
+<div class="form-group"><label>First Name *</label><input type="text" id="firstName" required><div class="error-msg">Required</div></div>
+<div class="form-group"><label>Surname (Paterno) *</label><input type="text" id="surname" required><div class="error-msg">Required</div></div>
+<div class="form-group"><label>Last Name (Materno) *</label><input type="text" id="lastName" required><div class="error-msg">Required</div></div>
+<div class="form-group"><label>Title *</label><input type="text" id="title" required><div class="error-msg">Required</div></div>
+<div class="form-group"><label>Company *</label><input type="text" id="company" required><div class="error-msg">Required</div></div>
+<div class="form-group"><label>Business Email *</label><input type="email" id="bizEmail" required placeholder="name@company.com"><div class="error-msg">Use a corporate email (no Gmail, Outlook, Hotmail, Yahoo, etc.)</div></div>
+<div class="form-group full"><label>Sector *</label><select id="sector" required><option value="">Select your sector</option><option>Corporativo</option><option>Seguros</option><option>Broker Dealer</option><option>Hedge Fund</option><option>FCM</option><option>Banking</option><option>Pension</option></select><div class="error-msg">Please select a sector</div></div>
+</div>
+<button type="submit" class="cta-btn submit-btn">Submit Registration</button>
+</form>
+<div class="success-msg" id="successMsg"><h3>Thank You</h3><p>Your registration has been received. A program advisor will reach out within 24 hours.</p></div>
+</div>
+</div></section>
+
+<footer><div class="container"><div class="logo-foot">R I S K M A T H I C S</div><p>&copy; 2026 RiskMathics Financial Innovation Lab. All rights reserved.</p><p>executive@riskmathics.com &bull; www.riskmathics.com</p></div></footer>
+
+<script>
+const blockedDomains=['gmail.com','googlemail.com','outlook.com','hotmail.com','live.com','msn.com','aol.com','yahoo.com','yahoo.com.mx','ymail.com','icloud.com','me.com','mac.com','protonmail.com','proton.me','tutanota.com','zoho.com','mail.com','gmx.com','gmx.net','inbox.com'];
+const form=document.getElementById('leadForm');
+const success=document.getElementById('successMsg');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+let valid=true;
+document.querySelectorAll('.form-group').forEach(g=>g.classList.remove('error'));
+['firstName','surname','lastName','title','company'].forEach(id=>{
+if(!document.getElementById(id).value.trim()){document.getElementById(id).closest('.form-group').classList.add('error');valid=false;}
+});
+const email=document.getElementById('bizEmail').value.trim().toLowerCase();
+if(!email||!email.includes('@')){document.getElementById('bizEmail').closest('.form-group').classList.add('error');valid=false;}
+else{const domain=email.split('@')[1];if(blockedDomains.includes(domain)){document.getElementById('bizEmail').closest('.form-group').classList.add('error');valid=false;}}
+if(!document.getElementById('sector').value){document.getElementById('sector').closest('.form-group').classList.add('error');valid=false;}
+if(!valid)return;
+const data={firstName:document.getElementById('firstName').value,surname:document.getElementById('surname').value,lastName:document.getElementById('lastName').value,title:document.getElementById('title').value,company:document.getElementById('company').value,email:email,sector:document.getElementById('sector').value,program:'THE HUMAN ADVANTAGE',timestamp:new Date().toISOString()};
+console.log('Lead captured:',JSON.stringify(data));
+form.style.display='none';success.style.display='block';
+});
+</script>
+</body>
+</html>
