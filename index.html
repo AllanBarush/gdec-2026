@@ -60,7 +60,7 @@ section h2 span{color:var(--coral)}
 .form-group input,.form-group select{width:100%;padding:12px 16px;background:var(--navy);border:1px solid var(--navy-mid);border-radius:6px;color:var(--white);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .3s}
 .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--coral)}
 .form-group select option{background:var(--navy);color:var(--white)}
-.error-msg{color:#EF4444;font-size:11px;margin-top:4px;display:none}
+.error-msg{color:#EF4444;font-size:11px;margin-top:4px;display:none} .email-alert{display:none;background:#991B1B;border:2px solid #EF4444;border-radius:8px;padding:16px 20px;margin-top:12px;text-align:center;animation:shake .5s} .email-alert.show{display:block} .email-alert p{color:#FCA5A5;font-size:14px;font-weight:500;margin:0} .email-alert strong{color:#FFF;font-size:15px} @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 .form-group.error input,.form-group.error select{border-color:#EF4444}
 .form-group.error .error-msg{display:block}
 .submit-btn{width:100%;margin-top:24px}
@@ -142,7 +142,7 @@ footer p{color:var(--navy-mid);font-size:12px;margin-top:8px}
 <div class="form-group"><label>Last Name (Materno) *</label><input type="text" id="lastName" required><div class="error-msg">Required</div></div>
 <div class="form-group"><label>Title *</label><input type="text" id="title" required><div class="error-msg">Required</div></div>
 <div class="form-group"><label>Company *</label><input type="text" id="company" required><div class="error-msg">Required</div></div>
-<div class="form-group"><label>Business Email *</label><input type="email" id="bizEmail" required placeholder="name@company.com"><div class="error-msg">Use a corporate email (no Gmail, Outlook, Hotmail, Yahoo, etc.)</div></div>
+<div class="form-group"><label>Business Email *</label><input type="email" id="bizEmail" required placeholder="name@company.com"><div class="error-msg">Use a corporate email (no Gmail, Outlook, Hotmail, Yahoo, etc.)</div><div class="email-alert" id="emailAlert"><strong>\u26D4 Free email addresses are not permitted</strong><p>This program is exclusively for corporate executives. Please use your business email (e.g. name@yourcompany.com). Personal emails like Gmail, Outlook, Hotmail, Yahoo, AOL, iCloud, etc. are not accepted.</p></div></div>
 <div class="form-group full"><label>Sector *</label><select id="sector" required><option value="">Select your sector</option><option>Corporativo</option><option>Seguros</option><option>Broker Dealer</option><option>Hedge Fund</option><option>FCM</option><option>Banking</option><option>Pension</option></select><div class="error-msg">Please select a sector</div></div>
 </div>
 <button type="submit" class="cta-btn submit-btn">Submit Registration</button>
@@ -166,7 +166,7 @@ if(!document.getElementById(id).value.trim()){document.getElementById(id).closes
 });
 const email=document.getElementById('bizEmail').value.trim().toLowerCase();
 if(!email||!email.includes('@')){document.getElementById('bizEmail').closest('.form-group').classList.add('error');valid=false;}
-else{const domain=email.split('@')[1];if(blockedDomains.includes(domain)){document.getElementById('bizEmail').closest('.form-group').classList.add('error');valid=false;}}
+else{const domain=email.split('@')[1];if(blockedDomains.includes(domain)){document.getElementById('bizEmail').closest('.form-group').classList.add('error');document.getElementById('emailAlert').classList.add('show');valid=false;}else{document.getElementById('emailAlert').classList.remove('show');}}
 if(!document.getElementById('sector').value){document.getElementById('sector').closest('.form-group').classList.add('error');valid=false;}
 if(!valid)return;
 const data={firstName:document.getElementById('firstName').value,surname:document.getElementById('surname').value,lastName:document.getElementById('lastName').value,title:document.getElementById('title').value,company:document.getElementById('company').value,email:email,sector:document.getElementById('sector').value,program:'THE HUMAN ADVANTAGE',timestamp:new Date().toISOString()};
