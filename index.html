@@ -170,7 +170,7 @@ else{const domain=email.split('@')[1];if(blockedDomains.includes(domain)){docume
 if(!document.getElementById('sector').value){document.getElementById('sector').closest('.form-group').classList.add('error');valid=false;}
 if(!valid)return;
 const data={firstName:document.getElementById('firstName').value,surname:document.getElementById('surname').value,lastName:document.getElementById('lastName').value,title:document.getElementById('title').value,company:document.getElementById('company').value,email:email,sector:document.getElementById('sector').value,program:'THE HUMAN ADVANTAGE',timestamp:new Date().toISOString()};
-console.log('Lead captured:',JSON.stringify(data));
+fetch('https://allanbarush.app.n8n.cloud/webhook/landing-page-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(r=>console.log('Lead sent to n8n:',r.status)).catch(e=>console.error('Error:',e));
 form.style.display='none';success.style.display='block';
 });
 </script>
